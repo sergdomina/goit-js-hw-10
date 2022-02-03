@@ -24,7 +24,10 @@ function handlInput(event){
 function showCountries(countries){
     ulBox.innerHTML=''
     divBox.innerHTML=''
-
+    if(countries.status===404){
+        Notify.failure(`please, write valid country name`)
+        return
+    }
     if(countries.length>10){
         return Notify.success("Too many matches found. Please enter a more specific name.");
     }
